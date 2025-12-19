@@ -1,10 +1,14 @@
+# Assignment 2: Implementing Q-learning and SARSA on FrozenLake
 import gymnasium as gym
 import numpy as np
+import matplotlib 
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 
 env = gym.make(
     "FrozenLake-v1",
-    map_name="6x6",
+    map_name="8x8",
     is_slippery=True
 )
 
@@ -114,9 +118,10 @@ plt.plot(success_q, label="Q-learning")
 plt.plot(success_s, label="SARSA")
 plt.xlabel("Evaluation Window")
 plt.ylabel("Success Rate")
-plt.title("Q-learning vs SARSA (FrozenLake 6x6)")
+plt.title("Q-learning vs SARSA (FrozenLake 8x8)")
 plt.legend()
-plt.show()
+plt.savefig("q_learning_vs_sarsa.png")
+plt.close()
 
 def extract_policy(Q):
     return np.argmax(Q, axis=1)
@@ -125,7 +130,7 @@ policy_q = extract_policy(Q_q)
 policy_s = extract_policy(Q_s)
 
 
-def print_policy(policy, size=6):
+def print_policy(policy, size=8):
     arrows = {0: "←", 1: "↓", 2: "→", 3: "↑"}
     grid = np.array([arrows[a] for a in policy]).reshape(size, size)
     print(grid)

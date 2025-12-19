@@ -1,0 +1,37 @@
+Q-learning vs SARSA: Policy Comparison and Theoretical Explanation
+-------------------------------------------------------------------
+Both Q-learning and SARSA were trained using the same environment, hyperparameters, and ε-greedy exploration schedule.
+
+Observed behavior near holes and risky transitions:
+
+Q-learning tends to learn more fast policies. Since it updates using the maximum Q-value of the next state, it assumes that the best possible action will always be taken in the future.
+
+Whereas SARSA on the other hand ,learns more conservative policies. Because it updates using the action actually taken in the next state (which may be exploratory), it accounts for the possibility of suboptimal actions. This causes SARSA to avoid states near holes and prefer safer, though sometimes longer, paths.
+
+
+Theoretical Explanation of Differences
+---------------------------------------
+
+1. On-policy vs Off-policy Updates
+
+Q-learning is an "off-policy" algorithm. Its updates are independent of the behavior policy and instead use a greedy assumption about future actions. This allows it to learn the optimal policy faster, but can lead to overly optimistic value estimates.
+
+SARSA is an "on-policy" algorithm. It learns the value of the policy it actually follows, including exploratory actions. This makes learning slower but more aligned with real behavior during training.
+
+
+2. Incorporation of Exploration in Value Updates
+
+In Q-learning, exploration affects data collection but not the update target, since the maximum next-state action is always used.
+
+In SARSA, exploration directly affects updates because the next action is chosen using ε-greedy selection.
+
+
+3. Effect of Stochastic Transitions
+
+FrozenLake has slippery dynamics, meaning actions may not lead to intended outcomes. Under such stochasticity:
+
+Q-learning’s optimistic updates can overestimate the safety of risky paths.
+
+SARSA’s cautious updates reduce exposure to states where random transitions could lead to failure.
+
+Thus, SARSA performs better in terms of risk-aware behavior, while Q-learning prioritizes optimality under ideal action execution.
