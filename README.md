@@ -57,3 +57,18 @@ python assignment2.py  # SARSA policy
 
 # Week 2
 python train.py        # PPO training
+
+```
+### Supply Chain Background
+
+Introductory videos on supply chain management and global logistics helped build intuition about how real-world supply chains operate across multiple stages (manufacturers, distributors, retailers). Case studies and documentaries, such as those by WSJ and analyses of Amazon’s logistics network, were useful in understanding the scale, delays, and coordination challenges present in global supply systems.
+
+More focused resources on **multi-echelon inventory systems** and the **bullwhip effect** highlighted how small changes in demand can amplify across different levels of a supply chain. The Beer Game and its simulations provided a concrete example of how delayed information and decentralized decision-making can lead to inefficiencies and instability. These ideas are particularly relevant for modeling supply chains as interacting agents rather.
+
+### Multi-Agent Reinforcement Learning
+
+The MARL book was used as a high-level reference to understand the types of problems addressed in multi-agent settings, such as coordination, competition, and non-stationarity.Basic **Game theory**  was also studied to understand concepts like equilibria and incentive alignment.
+
+Lecture videos and research talks on MARL, including seminar-style presentations, helped differentiate multi-agent learning from standard RL. These resources emphasized why assumptions that hold in single-agent environments (such as stationarity of the environment) often break down when multiple learning agents interact.
+
+Still the progress on Multi-Agent RL is going on .
